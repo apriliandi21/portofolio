@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="Dian — IT Student, Developer & Technology Enthusiast. Portfolio of projects, skills, and learning journey in web development, AI, and machine learning." />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="data:," />
+<title>Web Portfolio Dian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<!-- ===== CSS: dipisah ke assets/style.css ===== -->
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">DIAN<span>.</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#journey" class="nav-link">Journey</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <!-- index.html — tambah sebelum </body>, di atas tag <script> -->
+      <div class="modal-backdrop" id="cvModal" role="dialog" aria-modal="true">
+        <div class="modal">
+          <button class="icon-btn modal-close" data-close type="button" aria-label="Close">✕</button>
+          <div id="cvPaper" class="cv-paper"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+            <button class="btn btn-primary btn-sm" type="button" onclick="downloadCVPDF()">Unduh CV (PDF)</button>
+            <button class="btn btn-ghost btn-sm" type="button" onclick="window.print()">Cetak / Simpan PDF</button>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-sm btn-cv" id="cvBtnTop" type="button">Download CV</button>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light or dark theme"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-15 1.2 2.6h-2.4L12 2zm0 20-1.2-2.6h2.4L12 22zM2 12l2.6-1.2v2.4L2 12zm20 0-2.6 1.2V10.8L22 12zM4.2 4.2l2.3 1-1 2.3-2.3-1 1-2.3zm15.6 15.6-2.3-1 1-2.3 2.3 1-1 2.3zM19.8 4.2l-1 2.3-2.3-1 1-2.3 2.3 1zM4.2 19.8l1-2.3 2.3 1-1 2.3-2.3-1z"/></svg></button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    <a href="#" id="cvBtnMobile">Download CV</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home" style="padding-top:56px">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hello">HELLO, I'M DIAN</p>
+      <h1>Turning Curiosity Into <em>Digital Creations.</em></h1>
+      <p class="hero-desc">I'm an IT student passionate about technology, programming, and innovation. I enjoy exploring new ideas, developing digital solutions, and continuously learning to create meaningful experiences through technology.</p>
+      <div class="badge"><i></i> IT STUDENT • ALWAYS LEARNING</div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">Explore My Projects →</a>
+        <a class="btn btn-ghost" href="#contact">Let's Connect</a>
+      </div>
+      <div class="socials" id="heroSocials"></div>
+    </div>
+    <div class="photo-col">
+      <div class="photo-frame" id="photoFrame">
+        <img id="profileImg" alt="Profile photo of Dian" style="display:none">
+        <div id="photoPlaceholder">
+          <div class="photo-initial">D</div>
+          <p><strong>Your photo goes here</strong>Replace this placeholder with your real profile photo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec-alt">
+  <div class="wrap">
+    <p class="kicker reveal">About Me</p>
+    <h2 class="sec-title reveal">Get to Know Me.</h2>
+    <p class="sec-sub reveal">A short introduction — who I am, what drives me, and where I'm heading.</p>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <p>Hi! I'm <strong>Dian</strong>, an IT student who genuinely enjoys figuring out how technology works — and then building something useful with it. What started as curiosity about computers grew into a real interest in <strong>programming and system development</strong>: writing code, solving problems, and turning ideas into working digital products.</p>
+        <p>Lately, I've been especially drawn to <strong>Artificial Intelligence and Machine Learning</strong> — how machines can learn from data, recognize patterns, and help people make better decisions. Fields like computer vision fascinate me because they let software actually "see" the world.</p>
+        <p>I also enjoy teaching and sharing what I've learned with others. I have experience helping others understand the material — explaining concepts in a simple way — even though I'm still in the learning stage myself, and teaching is one of the ways I learn best.</p>
+        <p>I'm still early in my journey, and that's exactly what motivates me: there's always a new concept to learn, a new tool to try, and a better way to build something. My goal is simple — keep learning, keep building, and grow into a developer who creates technology that genuinely helps people.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact"><div class="fi fi-num">01</div><div><h3>IT Student</h3><p>Currently studying information technology and building a strong foundation in computing.</p></div></div>
+        <div class="fact"><div class="fi fi-num">02</div><div><h3>Developer Mindset</h3><p>I learn best by building — small experiments, prototypes, and real projects.</p></div></div>
+        <div class="fact"><div class="fi fi-num">03</div><div><h3>AI Enthusiast</h3><p>Exploring machine learning, deep learning, and computer vision step by step.</p></div></div>
+        <div class="fact"><div class="fi fi-num">04</div><div><h3>Always Learning</h3><p>Technology moves fast — I make it a habit to keep up and keep practicing.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="wrap">
+    <p class="kicker reveal">Interests</p>
+    <h2 class="sec-title reveal">What I'm Interested In.</h2>
+    <p class="sec-sub reveal">The areas of technology I spend my time exploring, learning, and building in.</p>
+    <div class="grid grid-3" id="interestGrid"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec-alt">
+  <div class="wrap">
+    <p class="kicker reveal">Skills</p>
+    <h2 class="sec-title reveal">Technologies &amp; Skills.</h2>
+    <p class="sec-sub reveal">The languages, tools, and topics I work with and continue to develop — no inflated percentages, just an honest map of my toolkit.</p>
+    <div class="grid grid-2" id="skillGrid"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="kicker reveal">Portfolio</p>
+    <h2 class="sec-title reveal">Things I've Built.</h2>
+    <p class="sec-sub reveal">A showcase of projects and experiments. Filter by category, open any card for details — and swap these placeholders with your real work anytime via CONFIG in assets/config.js.</p>
+    <div class="filters reveal" id="projectFilters"></div>
+    <div class="grid grid-3" id="projectGrid"></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="sec-alt">
+  <div class="wrap">
+    <p class="kicker reveal">Journey</p>
+    <h2 class="sec-title reveal" style="text-align:center">My Learning Journey.</h2>
+    <p class="sec-sub reveal" style="margin-left:auto;margin-right:auto;text-align:center">How my path as an IT student is unfolding — one step, one project, one lesson at a time.</p>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="wrap">
+    <p class="kicker reveal">Recognition</p>
+    <h2 class="sec-title reveal">Certificates &amp; Achievements.</h2>
+    <p class="sec-sub reveal">Certificates and milestones along the way. Click any card to preview it — replace the placeholders as you earn new ones.</p>
+    <div class="grid grid-3" id="certGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-alt">
+  <div class="wrap">
+    <p class="kicker reveal">Contact</p>
+    <h2 class="sec-title reveal">Let's Build Something Together.</h2>
+    <p class="sec-sub reveal">Have a project, collaboration idea, or just want to connect? Feel free to reach out.</p>
+    <div class="contact-grid">
+      <div class="contact-list reveal" id="contactList"></div>
+      <form id="contactForm" class="reveal" novalidate>
+        <label>Name<input type="text" id="cfName" placeholder="Your name" required></label>
+        <label>Email<input type="email" id="cfEmail" placeholder="you@email.com" required></label>
+        <label>Subject<input type="text" id="cfSubject" placeholder="What's this about?" required></label>
+        <label>Message<textarea id="cfMessage" placeholder="Write your message…" required></textarea></label>
+        <button class="btn btn-primary" type="submit">Send via Email App →</button>
+        <p class="form-note">This form opens your email app with the message pre-filled — nothing is sent or stored by this page itself.</p>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#home">DIAN<span>.</span></a>
+        <p>Personal portfolio — IT Student | Developer | Technology Enthusiast.</p>
+      </div>
+      <div class="socials" id="footSocials"></div>
+    </div>
+    <p class="copy">© <span id="year"></span> Dian. Built with curiosity — and a lot of learning.</p>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="Back to top">↑</button>
+
+<!-- PROJECT MODAL -->
+<div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="icon-btn modal-close" data-close type="button" aria-label="Close">✕</button>
+    <p class="m-cat" id="pmCat"></p>
+    <h3 id="pmTitle"></h3>
+    <div id="pmImageWrap" style="display:none"></div>
+    <p id="pmDesc"></p>
+    <div class="tech" id="pmTech" style="margin:14px 0 20px"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap" id="pmLinks"></div>
+  </div>
+</div>
+
+<!-- CERT LIGHTBOX -->
+<div class="modal-backdrop" id="certModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="icon-btn modal-close" data-close type="button" aria-label="Close">✕</button>
+    <p class="m-cat" id="cmOrg"></p>
+    <h3 id="cmTitle"></h3>
+    <div class="lightbox-art" id="cmArt"></div>
+    <p id="cmMeta"></p>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT: dipisah ke assets/config.js (data) + assets/script.js (logika) ===== -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>
