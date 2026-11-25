@@ -194,6 +194,9 @@ footer{border-top:1px solid var(--border);padding:44px 0 34px;background:var(--b
   .grid-3,.grid-2{grid-template-columns:1fr}
   .hero{padding-top:44px}
   .hero-cta .btn{flex:1}
+  .nav{padding:0 12px}
+  .nav-actions{flex-direction:row-reverse}
+  .mobile-menu{padding:10px 12px 16px}
 }
 
 /* CLEAN ICONS — tanpa emoji (ditambahkan pada rebuild terakhir) */
