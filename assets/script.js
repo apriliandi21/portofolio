@@ -509,11 +509,11 @@ function buildCVHTML() {
     .join("");
 
   return (
-  "<style>#cvPaper p,#cvPaper li{page-break-inside:avoid}#cvPaper h2{page-break-after:avoid}</style>" +
+  "<style>#cvPaper p,#cvPaper li{page-break-inside:avoid;text-align:justify}#cvPaper p.cv-head,#cvPaper p.cv-skills{text-align:left}#cvPaper h2{page-break-after:avoid}</style>" +
   (CONFIG.profilePhoto
     ? '<img src="' +
       esc(CONFIG.profilePhoto) +
-      '" alt="Foto" style="width:96px;height:118px;object-fit:cover;float:right;margin:0 0 12px 16px;">'
+      '" alt="Foto" style="width:110px;height:135px;object-fit:cover;float:right;margin:0 14px 12px 16px;">'
     : "") +
   '<h1 class="cv-name">' +
     esc(CONFIG.name) +
@@ -528,7 +528,7 @@ function buildCVHTML() {
     "<h2>SUMMARY</h2><p>" +
     esc(CONFIG.about) +
     "</p>" +
-    "<h2>SKILLS</h2><p>" +
+    "<h2>SKILLS</h2><p class=\"cv-skills\">" +
     skills +
     "</p>" +
     "<h2>PROJECTS</h2><ul>" +

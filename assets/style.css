@@ -195,8 +195,19 @@ footer{border-top:1px solid var(--border);padding:44px 0 34px;background:var(--b
   .hero{padding-top:44px}
   .hero-cta .btn{flex:1}
   .nav{padding:0 12px}
-  .nav-actions{flex-direction:row-reverse;margin-left:auto}
-  .mobile-menu{padding:10px 12px 16px}
+  .nav-actions{margin-left:auto}
+  .mobile-menu{
+  position:absolute;
+  top:100%;
+  right:0;
+  left:auto;
+  width:min(80vw,320px);
+  height:calc(100dvh - 68px);
+  background:var(--bg);
+  border-left:1px solid var(--border);
+  padding:10px 12px 16px;
+  text-align:left;
+}
 }
 
 /* CLEAN ICONS — tanpa emoji (ditambahkan pada rebuild terakhir) */
