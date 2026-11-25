@@ -475,10 +475,10 @@ toTop.addEventListener("click", function () {
 /* ---------- Download CV (generated from CONFIG) ---------- */
 function buildCVHTML() {
   var skills = CONFIG.skillGroups
-    .map(function (g) {
-      return g.group + ": " + g.skills.join(", ");
-    })
-    .join("<br>");
+  .map(function (g) {
+    return (g.title || g.group || "") + ": " + g.skills.join(", ");
+  })
+  .join("<br>");
 
   var projects = CONFIG.projects
     .map(function (p) {
@@ -509,7 +509,13 @@ function buildCVHTML() {
     .join("");
 
   return (
-    '<h1 class="cv-name">' +
+  "<style>#cvPaper p,#cvPaper li{page-break-inside:avoid}#cvPaper h2{page-break-after:avoid}</style>" +
+  (CONFIG.profilePhoto
+    ? '<img src="' +
+      esc(CONFIG.profilePhoto) +
+      '" alt="Foto" style="width:96px;height:118px;object-fit:cover;float:right;margin:0 0 12px 16px;">'
+    : "") +
+  '<h1 class="cv-name">' +
     esc(CONFIG.name) +
     "</h1>" +
     '<p class="cv-head">Email: ' +
@@ -542,8 +548,18 @@ function downloadCVPDF() {
     image: { type: "jpeg", quality: 0.98 },
     html2canvas: { scale: 2 },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    pagebreak: { mode: ["css", "legacy"] },
+    };
+  var img = element.querySelector("img");
+  var go = function () {
+    html2pdf().set(opt).from(element).save();
   };
-  html2pdf().set(opt).from(element).save();
+  if (img && (!img.complete || img.naturalWidth === 0)) {
+    img.onload = go;
+    img.onerror = go;
+  } else {
+    go();
+  }
 }
 document.getElementById("cvBtnTop").addEventListener("click", downloadCVPDF);
 document.getElementById("cvBtnMobile").addEventListener("click", downloadCVPDF);
