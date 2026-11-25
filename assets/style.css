@@ -199,8 +199,8 @@ footer{border-top:1px solid var(--border);padding:44px 0 34px;background:var(--b
   .mobile-menu{
   position:absolute;
   top:100%;
-  right:0;
-  left:auto;
+  left:auto !important;
+  right:0 !important;
   width:min(80vw,320px);
   height:calc(100dvh - 68px);
   background:var(--bg);

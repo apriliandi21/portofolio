@@ -538,28 +538,21 @@ function buildCVHTML() {
     journey
   );
 }
-function downloadCVPDF() {
+function downloadCVPDF(e){
+  if(e) e.preventDefault();
   var element = document.getElementById("cvPaper");
+  if(!element) return;
   element.innerHTML = buildCVHTML();
   element.style.display = "block";
+  if(typeof html2pdf === "undefined"){ window.print(); return; }
   var opt = {
     margin: 0,
     filename: "Dian-CV.pdf",
     image: { type: "jpeg", quality: 0.98 },
     html2canvas: { scale: 2 },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-    pagebreak: { mode: ["css", "legacy"] },
-    };
-  var img = element.querySelector("img");
-  var go = function () {
-    html2pdf().set(opt).from(element).save();
   };
-  if (img && (!img.complete || img.naturalWidth === 0)) {
-    img.onload = go;
-    img.onerror = go;
-  } else {
-    go();
-  }
+  html2pdf().set(opt).from(element).save().catch(function(){ window.print(); });
 }
 document.getElementById("cvBtnTop").addEventListener("click", downloadCVPDF);
 document.getElementById("cvBtnMobile").addEventListener("click", downloadCVPDF);
